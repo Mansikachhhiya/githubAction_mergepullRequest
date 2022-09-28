@@ -16,7 +16,7 @@ on:
   push:
     branches:
       - develop
-#      - feature/create-api
+      - feature/create-api
 
 jobs:
   build:
