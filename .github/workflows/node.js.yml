@@ -59,7 +59,7 @@ jobs:
       - build
     runs-on: ubuntu-latest
     steps:
-      - if: ${{ github.event.workflow_run.conclusion == true}}
+      - if: ${{ github.event.workflow_run.merged == true}}
         name: merge me!
         uses: ridedott/merge-me-action@v2
         with:
