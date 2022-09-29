@@ -12,7 +12,7 @@ on:
 #      - closed
   pull_request:
     types:
-      - closed
+      - opened
   push:
     branches:
       - develop
