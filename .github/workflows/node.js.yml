@@ -9,7 +9,7 @@ on:
 #    branches:
 #      - develop
 #    types:
-#      - closed
+#      - opened
   pull_request:
     types:
       - closed
