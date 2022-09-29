@@ -11,10 +11,15 @@ on:
 #    types:
 #      - opened
   pull_request:
+    branches:
+      - master
+      - develop
+      - develop2
     types:
       - opened
   push:
     branches:
+      - develop2
       - develop
       - feature/create-api
 
