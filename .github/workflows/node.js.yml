@@ -22,7 +22,7 @@ on:
       - develop
       - devlop3
     types:
-      - opened
+      - closed
 #  push:
 #    branches:
 #      - develop2
