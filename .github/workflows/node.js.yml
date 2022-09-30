@@ -18,16 +18,9 @@ on:
     types:
       - opened
       - reopened
-#  Trigger on pull request against master branch
   pull_request_target:
     types:
       - opened
-#  push:
-#    branches:
-#      - develop2
-#      - develop
-#      - feature/create-api
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -39,9 +32,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-#        with:
-#          # This adds support for both `pull_request_target` and `push` events.
-#          ref: ${{ github.event.pull_request.head.sha || github.sha }}
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
@@ -54,32 +44,3 @@ jobs:
       - name: run unit test
         run: npm test
 #      - uses: superbrothers/close-pull-request@v3
-#  if_merged:
-#    if: github.event.pull_request.merged == true
-#    runs-on: ubuntu-latest
-#    steps:
-#      - run: |
-#          echo The PR was merged
-
-#  merge-me:
-#    name: merge me!
-#    if: github.event.pull_request.merged == false
-#    needs:
-#      # List all required job names here.
-#      - build
-#    runs-on: ubuntu-latest
-#    steps:
-#       - name: merge me!
-#         uses: ridedott/merge-me-action@v2
-#         with:
-#          # Depending on branch protection rules, a  manually populated
-#          # `GITHUB_TOKEN_WORKAROUND` secret with permissions to push to
-#          # a protected branch must be used. This secret can have an arbitrary
-#          # name, as an example, this repository uses `DOTTBOTT_TOKEN`.
-#          #
-#          # When using a custom token, it is recommended to leave the following
-#          # comment for other developers to be aware of the reasoning behind it:
-#          #
-#          # This must be used as GitHub Actions token does not support pushing
-#          # to protected branches.
-#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
