@@ -1,0 +1,46 @@
+# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
+
+name: merge request on testing
+
+on:
+  push:
+    branches:
+      - feature/create-api
+      - devlop3
+      - develop
+
+  pull_request:
+    branches:
+      - master
+      - develop
+      - devlop3
+    types:
+      - opened
+      - reopened
+  pull_request_target:
+    types:
+      - opened
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [14.x]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+      - name: install dependencies
+        run: npm install
+      - name: docker up for run postgres
+        run: docker-compose up -d
+      - name: run unit test
+        run: npm test
+#      - uses: superbrothers/close-pull-request@v3
