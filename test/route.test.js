@@ -4,7 +4,7 @@ const app = require("../index");
 describe("User Api test",()=> {
     it("should delete a user",async ()=>{
         const res = await request(app).delete("/api/users/2")
-        expect(res.statusCode).toEqual(504)
+        expect(res.statusCode).toEqual()
     })
    //
         it("Should create a new user ", async () => {

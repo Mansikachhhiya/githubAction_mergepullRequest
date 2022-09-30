@@ -51,7 +51,7 @@ jobs:
         run: docker-compose up -d
       - name: run unit test
         run: npm test
-      - uses: superbrothers/close-pull-request@v3
+#      - uses: superbrothers/close-pull-request@v3
 #  if_merged:
 #    if: github.event.pull_request.merged == true
 #    runs-on: ubuntu-latest
