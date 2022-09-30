@@ -9,13 +9,15 @@ on:
       - feature/create-api
       - devlop3
       - develop
+
   pull_request:
     branches:
       - master
       - develop
       - devlop3
     types:
-      - closed
+      - opened
+      - reopened
 #  Trigger on pull request against master branch
   pull_request_target:
     types:
