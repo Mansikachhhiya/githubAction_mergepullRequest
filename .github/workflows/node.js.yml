@@ -10,12 +10,10 @@ on:
       - devlop3
       - develop
 
-  # Trigger on pull request against master branch
-#  pull_request_target:
-#    branches:
-#      - develop
-#    types:
-#      - opened
+#   Trigger on pull request against master branch
+  pull_request_target:
+    types:
+      - opened
   pull_request:
     branches:
       - master
@@ -54,7 +52,7 @@ jobs:
         run: docker-compose up -d
       - name: run unit test
         run: npm test
-
+      - uses: superbrothers/close-pull-request@v3
 #  if_merged:
 #    if: github.event.pull_request.merged == true
 #    runs-on: ubuntu-latest
